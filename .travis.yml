@@ -5,6 +5,7 @@ services:
  - rabbitmq
  - mysql
  - postgresql
+ - elasticsearch
 
 php:
   - 5.6
