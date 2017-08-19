@@ -8,8 +8,5 @@
     },
     "require": {
         "symfony/symfony": "3.1.*"
-    },
-    "autoload": {
-        "files": ["model.php","controllers.php"]
     }
 }
