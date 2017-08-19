@@ -6,13 +6,13 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase
     protected function setUp()
     {
         $this->setBrowser('firefox');
-        $this->setBrowserUrl('http://localhost:8192/status_api/overview');
+        $this->setBrowserUrl('http://localhost:8192/');
     }
 
     public function testTitle()
     {
-        $this->url('http://localhost:8192/status_api/overview');
-        $this->assertEquals('MyEMSL Status - Overview', $this->title());
+        $this->url('http://localhost:8192/');
+        $this->assertEquals('List of Posts', $this->title());
     }
 }
 ?>
