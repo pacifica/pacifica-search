@@ -23,10 +23,10 @@ matrix:
       env: RELEASE=stable COMPOSER_CHANNEL=stable
 
 before_install:
-  - /bin/bash -xe travis/before_install.sh
+  - /bin/bash -xe travis/before-install.sh
 
 install:
   - /bin/bash -xe travis/install.sh
 
 script:
-  - /bin/bash -xe travis/script.sh
+  - /bin/bash -xe travis/test-script.sh
