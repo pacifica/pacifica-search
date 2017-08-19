@@ -22,7 +22,6 @@ export MYSQL_ENV_MYSQL_USER=travis
 export MYSQL_ENV_MYSQL_PASSWORD=
 archiveinterfaceserver.py --config travis/config.cfg &
 echo $! > archiveinterface.pid
-UniqueIDServer.py &
 pushd travis/metadata
 MetadataServer.py &
 popd
