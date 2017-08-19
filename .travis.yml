@@ -1,0 +1,32 @@
+language: php
+dist: trusty
+sudo: false
+
+php:
+  - 5.6
+  - 7.1
+
+cache:
+  directories:
+  - $HOME/.composer/cache/files
+
+matrix:
+  exclude:
+    - php: 5.6
+    - php: 7.1
+  include:
+    - php: 5.6
+      env: RELEASE=stable COMPOSER_CHANNEL=stable
+    - php: 5.6
+      env: LINTS=true COMPOSER_CHANNEL=stable
+    - php: 7.1
+      env: RELEASE=stable COMPOSER_CHANNEL=stable
+
+before_install:
+  - /bin/bash -xe travis/before_install.sh
+
+install:
+  - /bin/bash -xe travis/install.sh
+
+script:
+  - /bin/bash -xe travis/script.sh
