@@ -15,7 +15,7 @@
     <filter>
         <whitelist>
             <directory suffix=".php">tests</directory>
-            <directory suffix=".php">application</directory>
+            <file>index.php</file>
         </whitelist>
     </filter>
 </phpunit>
