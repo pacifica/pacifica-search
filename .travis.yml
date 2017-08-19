@@ -6,6 +6,13 @@ php:
   - 5.6
   - 7.1
 
+addons:
+  firefox: "51.0.1"
+  apt:
+    packages:
+      - nginx
+      - realpath
+
 cache:
   directories:
   - $HOME/.composer/cache/files
