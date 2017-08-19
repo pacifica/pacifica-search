@@ -1,0 +1,4 @@
+-e git://github.com/pacifica/pacifica-archiveinterface.git#egg=PacificaArchiveInterface
+-e git://github.com/pacifica/pacifica-metadata.git#egg=PacificaMetadata
+-e git://github.com/pacifica/pacifica-policy.git#egg=PacificaPolicy
+-e git://github.com/pacifica/pacifica-cartd.git#egg=PacificaCartd

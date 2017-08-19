@@ -1,6 +1,10 @@
 language: php
 dist: trusty
 sudo: false
+services:
+ - rabbitmq
+ - mysql
+ - postgresql
 
 php:
   - 5.6
