@@ -12,7 +12,7 @@ php:
   - 7.1
 
 addons:
-  firefox: 51.0.1
+  firefox: latest
   chrome: stable
   apt:
     packages:
