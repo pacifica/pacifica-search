@@ -1,9 +1,9 @@
 {
     "require-dev": {
         "codeclimate/php-test-reporter": "dev-master",
-        "phpunit/phpunit": "^5.7",
-        "phpunit/phpunit-selenium": "^3.5",
-        "phpunit/php-code-coverage": "^4.0",
+        "phpunit/phpunit": "^6",
+        "phpunit/phpunit-selenium": "^4.1",
+        "phpunit/php-code-coverage": "*",
         "squizlabs/php_codesniffer": "*"
     },
     "require": {
