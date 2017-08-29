@@ -15,7 +15,11 @@ addons:
   firefox: latest
   chrome: stable
   apt:
+    sources:
+      - elasticsearch-5.x
     packages:
+      - elasticsearch
+      - oracle-java8-set-default
       - nginx
       - realpath
 
