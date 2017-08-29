@@ -5,13 +5,15 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase
 
     protected function setUp()
     {
-        $this->setBrowser('firefox');
+        PHPUnit_Extensions_Selenium2TestCase::setDefaultWaitUntilTimeout(0);
+        PHPUnit_Extensions_Selenium2TestCase::setDefaultWaitUntilSleepInterval(500);
+        $this->setBrowser('chrome');
         $this->setBrowserUrl('http://localhost:8192/');
     }
 
     public function testTitle()
     {
-        $this->url('http://localhost:8192/');
+        $this->url('/');
         $this->assertEquals('List of Posts', $this->title());
     }
 }
