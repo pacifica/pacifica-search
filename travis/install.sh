@@ -25,6 +25,6 @@ function tmpl {
 tmpl travis/php-fpm.tmpl.conf travis/php-fpm.conf
 tmpl travis/nginx.tmpl.conf travis/nginx.conf
 cat travis/nginx.conf
-cat travis/php-fpm.conf
+cat ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default
 $PHP_FPM_BIN --fpm-config travis/php-fpm.conf
 nginx -c $PWD/travis/nginx.conf &
