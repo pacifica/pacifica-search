@@ -5,7 +5,7 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase
 
     protected function setUp()
     {
-        $this->setBrowser('firefox');
+        $this->setBrowser('chrome');
         $this->setBrowserUrl('http://localhost:8192/');
     }
 
