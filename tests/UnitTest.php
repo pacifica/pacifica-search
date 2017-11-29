@@ -1,9 +1,20 @@
 <?php
 /**
- * Selenium PHP Driver Class
+ * Selenium PHP Driver Module
+ *
+ * @category Module
+ * @package  Tests
+ * @author   David Brown
+ * @license  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License, version 2.1
+ * @link     https://github.com/pacifica/pacifica-search
+ *
+ */
+
+/**
+ * Selenium PHP Driver Index.php tests
  *
  * @category Class
- * @package  Tests
+ * @package  MyClass
  * @author   David Brown
  * @license  https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html GNU Lesser General Public License, version 2.1
  * @link     https://github.com/pacifica/pacifica-search
