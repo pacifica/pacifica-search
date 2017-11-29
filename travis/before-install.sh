@@ -11,7 +11,8 @@ sh -e /etc/init.d/xvfb start
 curl -L -o /tmp/selenium-server.jar http://selenium-release.storage.googleapis.com/3.0/selenium-server-standalone-3.0.1.jar
 java -jar /tmp/selenium-server.jar > /tmp/selenium-server.log 2>&1 &
 echo $! > /tmp/selenium-server.pid
-
+virtualenv travis/venv
+. travis/venv/bin/activate
 pip install -r travis/requirements.txt
 psql -c 'create database pacifica_metadata;' -U postgres
 mysql -e 'CREATE DATABASE pacifica_uniqueid;'
