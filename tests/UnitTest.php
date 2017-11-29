@@ -27,6 +27,8 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase
      *
      * This function sets up the selenium browser with firefox and sets the url to
      * the correct localhost address for our testing environment.
+     *
+     * @return Nothing
      */
     protected function setUp()
     {
@@ -38,6 +40,8 @@ class WebTest extends PHPUnit_Extensions_Selenium2TestCase
      * Test the title of the main page to see if it's correct.
      *
      * This function tests the main page and checks for the title so we know it's correct.
+     *
+     * @return Nothing
      */
     public function testTitle()
     {
