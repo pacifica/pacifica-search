@@ -1,0 +1,29 @@
+{
+  "actions": [
+    {
+      "add": {
+        "index": "pacifica_snapshot",
+        "alias": "pacifica_snapshot_last_month_transactions",
+        "filter": {
+          "bool": {
+            "must": [
+              {
+                "range": {
+                  "created": {
+                    "gte": "now-1M/M",
+                    "lt": "now/M"
+                  }
+                }
+              },
+              {
+                "type": {
+                  "value": "Transactions"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

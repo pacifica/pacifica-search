@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block site_id %}pacifica{% endblock %}
+{% block title %}search{% endblock %}
+{% block page_header %}Main Search Page{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/loading_animation.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/namespace.js') }}"></script>
+    <script src="{{ asset('js/utilities.js') }}"></script>
+    <script src="{{ asset('js/dom_manager.js') }}"></script>
+    <script src="{{ asset('js/lib/underscore/underscore-min.js') }}"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
+    <script src="{{ asset('js/pacifica_search.js') }}"></script>
+    <script>
+        $(function () {
+            if (console && console.log) {
+                console.log('Pacifica Search version {{ version_information }}');
+            }
+        });
+    </script>
+{% endblock %}
+{% block body %}
+    <section id="search_filter" class="search_results_block">
+        {% for collection in filters %}
+            <fieldset data-type="{{ collection.machineName }}">
+                <legend>{{ collection.typeDisplayName }}</legend>
+                <div class="current_filter_options">
+                    <!-- This element's contents are generated in JavaScript -->
+                </div>
+                <div class="option_container">
+                    {% for instance in collection.instances %}
+                        {% set input_id = collection.machineName ~ "_" ~ instance.id %}
+                        <label for="{{ input_id }}" title="{{ instance.displayName }}">
+                            <input type="checkbox" id="{{ input_id }}" data-id="{{ instance.id }}">
+                            {{ instance.displayName }}
+                        </label>
+                    {% endfor %}
+                </div>
+                <div class="page_control_block">
+                    <div class="next_prev_control">
+                        <a href="javascript:void(0);" class="paging_button prev_page">prev</a>
+                    <span class="page_number">1</span>
+                        <a href="javascript:void(0);" class="paging_button next_page">next</a>
+                    </div>
+                </div>
+            </fieldset>
+        {% endfor %}
+    </section>
+
+    <section id="files" class="search_results_block file_results themed" style="float:left;">
+        <fieldset class="text_search_box">
+            <div class="buttons" style="margin-bottom:-10px;">
+                <input style="width:90%;font-size:1.1em;font-weight:bold"/>
+                <input type="button" value="Search" style="margin-top:3px;"/>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Files</legend>
+            <div class="results_instructions">
+                Select some categories from the column to the left to load results
+            </div>
+            <div id="results_filetree"></div>
+            <div id="results_pager" class="page_control_block" style="display: none;">
+                <div class="next_prev_control">
+                    <a href="javascript:void(0);" class="paging_button prev_page">prev</a>
+                    <span class="page_number">1</span>
+                    <a href="javascript:void(0);" class="paging_button next_page">next</a>
+                </div>
+            </div>
+        </fieldset>
+        <!-- This element's remaining contents are generated in JavaScript -->
+    </section>
+    <div id="file_template" style="display:none">
+        <p>
+            <span class="file_name" data-is-file-name-container></span>
+        </p>
+    </div>
+{% endblock %}

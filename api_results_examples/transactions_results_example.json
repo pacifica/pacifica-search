@@ -1,0 +1,86 @@
+[
+    {
+        "title": "Proposal #31390",
+        "key": "31390",
+        "folder": true,
+        "children": [
+            {
+                "title": "TOF-SIMS 2007 (Instrument ID: 34073)",
+                "key": "34073",
+                "folder": true,
+                "children": [
+                    {
+                        "title": "Files Uploaded 2017-01-02 (Transaction 37778)",
+                        "key": "37778", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-04 (Transaction 38110)",
+                        "key": "38110", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-15 (Transaction 39228)",
+                        "key": "39228", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-02-02 (Transaction 40998)",
+                        "key": "40998", "folder": true, "lazy": true
+                    }
+                ]
+            },
+            {
+                "title": "Special NMR (Instrument ID: 34075)",
+                "key": "34075",
+                "folder": true,
+                "children": [
+                    {
+                        "title": "Files Uploaded 2017-01-01 (Transaction 38990)",
+                        "key": "38990", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-03 (Transaction 38995)",
+                        "key": "38995", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-14 (Transaction 39776)",
+                        "key": "39776", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-02-12 (Transaction 41908)",
+                        "key": "41908", "folder": true, "lazy": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Proposal #2308",
+        "key": "2308",
+        "folder": true,
+        "children": [
+            {
+                "title": "TOF-SIMS 2007 (Instrument ID: 34073)",
+                "key": "34073",
+                "folder": true,
+                "children": [
+                    {
+                        "title": "Files Uploaded 2017-01-02 (Transaction 37780)",
+                        "key": "37780", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-04 (Transaction 38112)",
+                        "key": "38112", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-01-15 (Transaction 39233)",
+                        "key": "39233", "folder": true, "lazy": true
+                    },
+                    {
+                        "title": "Files Uploaded 2017-02-02 (Transaction 40999)",
+                        "key": "40999", "folder": true, "lazy": true
+                    }
+                ]
+            }
+        ]
+
+    }
+]

@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+function _launch-selenium-server(){
+    DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) # The directory in which this script file is stored
+
+    JAVA_ARGS=$1
+    SELENIUM_ARGS=$2
+
+    # Java needs the -jar flag to point to the Windows path when run in Cygwin
+    JAR_PATH=`_get-windows-friendly-path ${DIR}/selenium-server-standalone-3.0.1.jar`
+
+    COMMAND_TO_EXECUTE="java ${JAVA_ARGS} -jar \"${JAR_PATH}\" ${SELENIUM_ARGS}"
+    echo "Launching Selenium Server: ${COMMAND_TO_EXECUTE}"
+    eval ${COMMAND_TO_EXECUTE}
+}
+
+###
+# Start a Selenium Server node instance. A node is registered to the Hub, and executes in-browser tests.
+###
+function launch-selenium-node(){
+    SYSTEM=$1 #Must be the name of one of the subdirectories of selenium/driver; specifies the type of system for a node
+
+    # browser flag arguments to be passed to the selenium server. E.G. "-browser browserName=safari -browser browserName=opera"
+    # to register a node that can run tests in either Safari or Opera.
+    BROWSERS=$2
+
+    HUB_IP=localhost
+    HUB_PORT=4444 # 4444 is the default port for the server to listen on and shouldn't need to be changed
+
+    DRIVER_PATH=${DIR}/driver/${SYSTEM} # The directory in which browser driver executables are stored (used when launching a node instance)
+    if [ ! -d "${DRIVER_PATH}" ]; then
+        echo "${SYSTEM} is not a valid system - path ${DRIVER_PATH} does not exist"
+    fi
+
+    DRIVERS="-Dwebdriver.gecko.driver=\"${DRIVER_PATH}/geckodriver.exe\" -Dwebdriver.chrome.driver=\"${DRIVER_PATH}/chromedriver.exe\" "
+
+    _launch-selenium-server "${DRIVERS}" "-role node -hubHost ${HUB_IP} -hubPort ${HUB_PORT} $BROWSERS"
+}
+
+###
+# Start a Selenium Server hub instance. A hub registers nodes, and dispatches tests to them for execution.
+###
+function launch-selenium-hub(){
+    _launch-selenium-server "" "-role hub"
+}
+
+###
+# Pass a Unixy path, this function will either echo the same path or (if we are in Cygwin) the equivalent icky Windows path
+###
+function _get-windows-friendly-path() {
+    FILE_PATH=$1
+    if [[ ! -z `which cygpath` ]] ; then
+      FILE_PATH=`cygpath -w ${FILE_PATH}`
+    fi
+    echo "${FILE_PATH}"
+}

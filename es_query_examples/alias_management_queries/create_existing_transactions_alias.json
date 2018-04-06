@@ -1,0 +1,15 @@
+{
+  "actions": [
+    {
+      "add": {
+        "index": "pacifica_snapshot",
+        "alias": "pacifica_snapshot_transactions_present",
+        "filter": {
+          "exists": {
+            "field": "transactions"
+          }
+        }
+      }
+    }
+  ]
+}

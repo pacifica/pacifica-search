@@ -1,5 +1,13 @@
 #!/bin/bash -xe
+
+# Install Symfony application dependencies
+pushd application
 composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable
+popd
+
+# Install global project dependencies (these are primarily packages required by Travis)
+composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable
+
 cp vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/prepend.php .
 cp vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/append.php .
 cp vendor/phpunit/phpunit-selenium/PHPUnit/Extensions/SeleniumCommon/phpunit_coverage.php .

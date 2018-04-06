@@ -1,0 +1,23 @@
+[
+    {
+        "fullpath": "<full path to file>",
+        "title": "<subdir part if in subdir, filename otherwise>",
+        "key": "<file id or maybe filehash>",
+        "folder": <true if not a file, remove key if file entity>,
+        "children": [
+            ...next layer of folder structure until we hit a file or files
+        ]
+    },
+    .
+    .
+    .
+    {
+        "fullpath": "<full path to file>",
+        "title": "<subdir part if in subdir, filename otherwise>",
+        "key": "<file id or maybe filehash>",
+        "folder": <true if not a file, remove key if file entity>,
+        "children": [
+            ...next layer of folder structure until we hit a file or files
+        ]
+    }
+]

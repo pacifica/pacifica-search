@@ -1,0 +1,40 @@
+label {
+    display: block;
+    padding-bottom: 5px;
+    width: 185px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+label.disabled {
+    color: lightgrey;
+}
+
+fieldset {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+input[type="checkbox"] {
+    float: left;
+    margin-right: 5px;
+}
+
+#files {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 250px;
+    right: 10px;
+}
+
+#files p {
+    margin: 0;
+}
+
+#search_filter {
+    width: 25%;
+    float: left;
+}

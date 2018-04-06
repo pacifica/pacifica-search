@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+##
+# This file is part of the JAT-Box project
+#
+# Starts the Selenium Server hub, which can then have any number of nodes
+# registered to it
+#
+# This needs to run on the MASTER machine (the Vagrant VM). Nodes can be registered
+# by running ./node (or ./node.ps1 in Windows) on the SLAVE machines that will
+# execute tests in-browser.
+#
+################################################################################
+
+# End child processes when this script is killed (from https://stackoverflow.com/questions/360201)
+trap 'kill $(jobs -p)' EXIT
+
+# get the directory in which this script is stored
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+source ${DIR}/_common
+launch-selenium-hub
