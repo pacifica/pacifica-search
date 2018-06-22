@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block site_id %}pacifica{% endblock %}
+{% block title %}search{% endblock %}
+{% block page_header %}Main Search Page{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/loading_animation.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/namespace.js') }}"></script>
+    <script src="{{ asset('js/utilities.js') }}"></script>
+    <script src="{{ asset('js/dom_manager.js') }}"></script>
+    <script src="{{ asset('js/file_tree_manager.js') }}"></script>
+    <script src="{{ asset('js/filter.js') }}"></script>
+    <script src="{{ asset('js/filter_manager.js') }}"></script>
+    <script src="{{ asset('js/pacifica_search.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <section id="text_search_section">
+        <fieldset class="text_search_box">
+            <form onsubmit="PacificaSearch.FilterManager.updateAvailableFilterOptions(); return false;" class="buttons">
+                <input title="Text Search" id="text_search"/>
+                <button id="text_search_btn">Search</button>
+            </form>
+        </fieldset>
+        <span id="transaction_count"><!-- This element's contents are generated in JavaScript --></span>
+    </section>
+
+    <section id="search_filter" class="search_results_block" style="display:none">
+        {% for machine_name, type_display_name in filter_types %}
+            <fieldset data-type="{{ machine_name }}" style="display:none">
+                <legend>{{ type_display_name }}</legend>
+                <div class="currently_selected_options">
+                    <!-- This element's contents are generated in JavaScript -->
+                </div>
+                <div class="option_container">
+                    <!-- This element's contents are generated in JavaScript -->
+                </div>
+                <div class="load_more_records_container">
+                    Showing
+                    <span class="current_record_count"></span>/<span class="total_record_count"></span>
+                    total records. (<a href="javascript:void(0)" onclick="PacificaSearch.FilterManager.loadMoreRecords('{{ machine_name }}')" class="load_more_records_link" data-page="1">more</a>)
+                </div>
+            </fieldset>
+        {% endfor %}
+    </section>
+
+    <section id="files" class="search_results_block file_results themed" style="display:none">
+        <fieldset>
+            <legend>Files</legend>
+            <div class="results_instructions">
+                Select some categories from the column to the left to load results
+            </div>
+            <div id="results_filetree"></div>
+        </fieldset>
+    </section>
+    <div id="file_template" style="display:none">
+        <p>
+            <span class="file_name" data-is-file-name-container></span>
+        </p>
+    </div>
+{% endblock %}

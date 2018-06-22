@@ -1,0 +1,3 @@
+pacifica_search:
+    resource: "@PacificaSearchBundle/Resources/config/routing.yml"
+    prefix:   /

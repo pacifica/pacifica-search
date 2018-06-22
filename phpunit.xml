@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd"
-         bootstrap="vendor/autoload.php"
+         bootstrap="./tests/bootstrap.php"
          backupGlobals="false"
          beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutTodoAnnotatedTests="true"
          verbose="true">
-    <testsuite>
+    <php>
+        <!-- The KERNEL_DIR environment variable is required for the unit_tests suite, which uses Symfony's built-in unit testing framework -->
+        <server name="KERNEL_DIR" value="application/app/" />
+    </php>
+    <testsuite name="unit_tests">
+        <directory suffix="Test.php">application/tests/*</directory>
+    </testsuite>
+    <testsuite name="functional_tests">
         <directory suffix="Test.php">tests</directory>
     </testsuite>
 
     <filter>
         <whitelist>
-            <directory suffix=".php">tests</directory>
-            <file>index.php</file>
+            <directory suffix=".php">./application/src/*</directory>
         </whitelist>
     </filter>
 </phpunit>

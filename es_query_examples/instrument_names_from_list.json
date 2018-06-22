@@ -1,0 +1,20 @@
+{
+  "_source": [
+    "name",
+    "display_name",
+    "name_short"
+  ],
+  "query": {
+    "bool": {
+      "filter": {
+        "terms": {
+          "_id": [
+            1002,
+            34176,
+            34075
+          ]
+        }
+      }
+    }
+  }
+}

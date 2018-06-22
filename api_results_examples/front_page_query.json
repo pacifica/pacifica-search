@@ -1,0 +1,25 @@
+{
+  "_source": false,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "default_field": "_all",
+            "query": "nmr"
+          }
+        }
+      ]
+    }
+  },
+  "size": 10,
+  "sort": [],
+  "aggs": {
+    "institution_list": {
+      "terms": {
+        "field": "institution_id",
+        "size": 0
+      }
+    }
+  }
+}

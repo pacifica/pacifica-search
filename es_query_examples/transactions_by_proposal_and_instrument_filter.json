@@ -1,0 +1,76 @@
+{
+  "_source": ["created","updated","instrument","submitter","proposal","metadata"],
+  "query": {
+    "bool": {
+      "filter": {
+        "terms": {
+          "instrument": [
+            1045,
+            34231,
+            34075,
+            1002,
+            1046,
+            34176
+          ]
+        }
+      },
+      "must": [
+        {
+          "match": {
+            "proposal": "45796"
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "instrument": {
+      "terms": {
+        "field": "instrument"
+      },
+      "aggs": {
+        "by_instrument": {
+          "top_hits": {
+            "_source": [
+              "proposal",
+              "submitter"
+            ],
+            "size": 50
+          }
+        }
+      }
+    },
+    "proposal": {
+      "terms": {
+        "field": "proposal.keyword"
+      },
+      "aggs": {
+        "by_proposal": {
+          "top_hits": {
+            "_source": [
+              "instrument",
+              "submitter"
+            ],
+            "size": 50
+          }
+        }
+      }
+    },
+    "submitter": {
+      "terms": {
+        "field": "submitter"
+      },
+      "aggs": {
+        "by_submitter": {
+          "top_hits": {
+            "_source": [
+              "proposal",
+              "instrument"
+            ],
+            "size": 50
+          }
+        }
+      }
+    }
+  }
+}
