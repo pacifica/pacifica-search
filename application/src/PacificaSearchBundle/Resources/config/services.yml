@@ -1,0 +1,28 @@
+services:
+    PacificaSearchBundle\Service\SearchService:
+        arguments: ["%elasticsearch_host%", "%elasticsearch_index%"]
+    PacificaSearchBundle\Service\RepositoryManager:
+        arguments: ["@PacificaSearchBundle\\Service\\SearchService"]
+    PacificaSearchBundle\Repository\InstrumentTypeRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getInstrumentTypeRepository"]
+    PacificaSearchBundle\Repository\InstrumentRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getInstrumentRepository"]
+    PacificaSearchBundle\Repository\InstitutionRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getInstitutionRepository"]
+    PacificaSearchBundle\Repository\UserRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getUserRepository"]
+    PacificaSearchBundle\Repository\ProposalRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getProposalRepository"]
+    PacificaSearchBundle\Repository\TransactionRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getTransactionRepository"]
+    PacificaSearchBundle\Repository\FileRepository:
+        factory: ["@PacificaSearchBundle\\Service\\RepositoryManager", "getFileRepository"]
+
+    PacificaSearchBundle\Controller\GuiController:
+        arguments:
+            - "%elasticsearch_host%"
+            - "@templating"
+
+    PacificaSearchBundle\Controller\FileTreeController:
+        arguments:
+            - "%metadata_host%"

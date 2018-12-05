@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block site_id %}pacifica{% endblock %}
+{% block title %}search{% endblock %}
+{% block page_header %}Main Search Page{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/loading_animation.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/searchkit/0.9.0/theme.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/searchkitStyling.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/namespace.js') }}"></script>
+    <script src="{{ asset('assets/js/utilities.js') }}"></script>
+    <script src="{{ asset('assets/js/dom_manager.js') }}"></script>
+    <script src="{{ asset('assets/js/file_tree_manager.js') }}"></script>
+    <script src="{{ asset('assets/js/searchReact.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div>
+        <div id="searchkit_section"></div>
+        <hr />
+    </div>
+
+    <script>
+        var esHost = '{{ elastic_search_host }}';
+        window.startSearchApp(esHost);
+    </script>
+{% endblock %}

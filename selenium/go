@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# A convenience script that launches a local Selenium hub in the background and a Selenium node in the foreground
+
+# End child processes when this script is killed (from https://stackoverflow.com/questions/360201)
+trap 'kill $(jobs -p)' EXIT
+
+# get the directory in which this script is stored
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+${DIR}/hub &
+${DIR}/node
+

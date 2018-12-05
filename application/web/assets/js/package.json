@@ -1,0 +1,41 @@
+{
+  "name": "pacifica-search",
+  "version": "1.0.0",
+  "description": "Node module information for pacifica search",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "font-awesome": "^4.6.3",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-addons-update": "^15.6.2",
+    "react-datepicker": "^1.6.0",
+    "react-dom": "^16.5.2",
+    "requirejs": "2.2.0",
+    "searchkit": "^2.3.2"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.26.0",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^5.2.0",
+    "laravel-mix": "^2.1.14"
+  },
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+/* Get Instruments collected by Group/Instrument Type */
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "terms": {
+          "instrument_id": [
+            1045,
+            34231,
+            34075,
+            1002,
+            1046,
+            34176
+          ]
+        }
+      }
+    }
+  },
+  "aggs": {
+    "instrument": {
+      "terms": {
+        "field": "group_id"
+      },
+      "aggs": {
+        "by_instrument": {
+          "top_hits": {
+            "_source": [
+              "instrument_id"
+            ],
+            "size": 50
+          }
+        }
+      }
+    }
+  }
+}

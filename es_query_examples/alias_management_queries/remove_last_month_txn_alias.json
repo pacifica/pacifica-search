@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "remove": {
+        "index": "pacifica_snapshot",
+        "alias": "pacifica_snapshot_last_month_transactions"
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+.transactionResultHit {
+    padding: 10px;
+    border-bottom: black solid;
+}
+
+.sk-hits {
+    border-top: black solid;
+}
+
+.sk-layout__top-bar {
+    position: relative;
+    z-index: 1;
+}
+
+.sk-layout__body {
+    margin: 5px auto 0;
+    min-width: 600px;
+}
+
+.sk-results-list {
+    padding: 10px 5px;
+}
+
+.collapsible-panel.collapsed {
+    margin-bottom: 16px;
+}
+
+.collapsible-panel.collapsed .collapsible-title::before {
+    content: "\f0da";
+    font-family: FontAwesome;
+    padding-right: 2px;
+}
+
+.collapsible-panel.collapsed .collapsible-body {
+    display: none;
+}
+
+.collapsible-panel.expanded .collapsible-title::before {
+    content: "\f0d7";
+    font-family: FontAwesome;
+    padding-right: 2px;
+}
+
+.collapsible-panel .collapsible-title {
+    font-weight: 800;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.collapsible-panel .collapsible-title:hover {
+    cursor: pointer;
+}
+
+.truncate-abstract {
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+}
+
+.truncate-abstract:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 20px;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+}

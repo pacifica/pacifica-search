@@ -1,0 +1,4 @@
+---
+exclude_paths:
+    - application/var/SymfonyRequirements.php
+    - application/web/config.php
